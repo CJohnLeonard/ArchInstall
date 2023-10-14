@@ -46,7 +46,7 @@ btrfs  subvolume create @snapshots
 cd
 umount /mnt
 
-mount -o noatime,compress=zstd, subvol=@ /dev/$rootpartition /mnt
+mount -o noatime,compress=zstd,subvol=@ /dev/$rootpartition /mnt
 
 mkdir -p /mnt/home
 mkdir -p /mnt/var/log
@@ -55,10 +55,10 @@ mkdir -p /mnt/.snapshots
 mkdir -p /mnt/efi
 
 #mounting root and its subvolume
-mount -o noatime,compress=zstd, subvol=@home /dev/sda2 /mnt/home
-mount -o noatime,compress=zstd, subvol=@log /dev/$rootpartition /mnt/var/log
-mount -o noatime,compress=zstd, subvol=@pkg /dev/$rootpartition /mnt/var/cache/pacman/pkg
-mount -o noatime,compress=zstd, subvol=@snapshots /dev/$rootpartition /mnt/.snapshots
+mount -o noatime,compress=zstd,subvol=@home /dev/$rootpartition /mnt/home
+mount -o noatime,compress=zstd,subvol=@log /dev/$rootpartition /mnt/var/log
+mount -o noatime,compress=zstd,subvol=@pkg /dev/$rootpartition /mnt/var/cache/pacman/pkg
+mount -o noatime,compress=zstd,subvol=@snapshots /dev/$rootpartition /mnt/.snapshots
 #mounting efi
 mount /dev/$efipartition /mnt/efi
 
