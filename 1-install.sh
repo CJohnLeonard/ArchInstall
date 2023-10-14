@@ -79,6 +79,7 @@ genfstab -U /mnt >> /mnt/etc/fstab
 mkdir /mnt/archinstall
 cd
 cd ArchInstall
+chmod +x 2-configuration.sh
 cp 2-configuration.sh /mnt/archinstall/
 cp 3-yay.sh /mnt/archinstall/
 cp 4-zram.sh /mnt/archinstall/
@@ -89,7 +90,5 @@ cp snapshot.sh /mnt/archinstall/
 # ------------------------------------------------------
 # Chroot to installed sytem
 # ------------------------------------------------------
-arch-chroot /mnt 
-cd archinstall
-chmod +x 2-configuration.sh
-./2-configuration.sh
+arch-chroot /mnt
+./archinstall/2-configuration.sh
