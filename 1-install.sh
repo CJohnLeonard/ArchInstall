@@ -37,22 +37,30 @@ mkfs.btrfs -f /dev/$rootpartition
 # Mount points for btrfs
 # ------------------------------------------------------
 mount /dev/$rootpartition /mnt
-btrfs su cr /mnt/@
-btrfs su cr /mnt/@cache
-btrfs su cr /mnt/@home
-btrfs su cr /mnt/@snapshots
-btrfs su cr /mnt/@log
+cd /mnt
+btrfs  subvolume create @
+btrfs  subvolume create @home
+btrfs  subvolume create @log
+btrfs  subvolume create @pkg
+btrfs  subvolume create @snapshots
+cd
 umount /mnt
 
-mount -o compress=zstd:1,noatime,subvol=@ /dev/$rootpartition /mnt
-mkdir -p /mnt/{boot/efi,home,.snapshots,var/{cache,log}}
-mount -o compress=zstd:1,noatime,subvol=@cache /dev/$rootpartition /mnt/var/cache
-mount -o compress=zstd:1,noatime,subvol=@home /dev/$rootpartition /mnt/home
-mount -o compress=zstd:1,noatime,subvol=@log /dev/$rootpartition /mnt/var/log
-mount -o compress=zstd:1,noatime,subvol=@snapshots /dev/$rootpartition /mnt/.snapshots
-mount /dev/$efipartition /mnt/boot/efi
-# mkdir /mnt/vm
-# mount /dev/$sda3 /mnt/vm
+mount -o noatime,compress=zstd, subvol=@ /dev/$rootpartition /mnt
+
+mkdir -p /mnt/home
+mkdir -p /mnt/var/log
+mkdir -p /mnt/var/cache/pacman/pkg
+mkdir -p /mnt/.snapshots
+mkdir -p /mnt/efi
+
+#mounting root and its subvolume
+mount -o noatime,compress=zstd, subvol=@home /dev/$rootpartition /mnt/home
+mount -o noatime,compress=zstd, subvol=@log /dev/$rootpartition /mnt/var/log
+mount -o noatime,compress=zstd, subvol=@pkg /dev/$rootpartition /mnt/var/cache/pacman/pkg
+mount -o noatime,compress=zstd, subvol=@snapshots /dev/$rootpartition /mnt/.snapshots
+#mounting efi
+mount /dev/$efipartition /mnt/efi
 
 # ------------------------------------------------------
 # Install base packages
