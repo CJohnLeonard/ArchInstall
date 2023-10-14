@@ -65,7 +65,7 @@ mount /dev/$efipartition /mnt/efi
 # ------------------------------------------------------
 # Install base packages
 # ------------------------------------------------------
-pacstrap /mnt base base-devel git linux linux-firmware vim openssh reflector rsync amd-ucode
+pacstrap /mnt base base-devel git linux linux-firmware vim openssh reflector amd-ucode
 
 # ------------------------------------------------------
 # Generate fstab

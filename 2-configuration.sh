@@ -34,7 +34,7 @@ pacman -Syy
 # ------------------------------------------------------
 # Install Packages
 # ------------------------------------------------------
-pacman --noconfirm -S grub xdg-desktop-portal-wlr efibootmgr networkmanager network-manager-applet dialog wpa_supplicant mtools dosfstools base-devel linux-headers avahi xdg-user-dirs xdg-utils gvfs gvfs-smb nfs-utils inetutils dnsutils bluez bluez-utils cups hplip alsa-utils pipewire pipewire-alsa pipewire-pulse pipewire-jack bash-completion openssh rsync reflector acpi acpi_call dnsmasq openbsd-netcat ipset firewalld flatpak sof-firmware nss-mdns acpid os-prober ntfs-3g terminus-font exa bat htop ranger zip unzip neofetch duf xorg xorg-xinit xclip grub-btrfs xf86-video-amdgpu xf86-video-nouveau xf86-video-intel xf86-video-qxl brightnessctl pacman-contrib inxi
+pacman --noconfirm -S grub efibootmgr networkmanager network-manager-applet dialog wpa_supplicant mtools dosfstools linux-headers avahi bluez bluez-utils cups bash-completion firewalld flatpak os-prober neofetch
 
 # ------------------------------------------------------
 # set lang utf8 US
@@ -46,8 +46,8 @@ echo "LANG=en_US.UTF-8" >> /etc/locale.conf
 # ------------------------------------------------------
 # Set Keyboard
 # ------------------------------------------------------
-echo "FONT=ter-v18n" >> /etc/vconsole.conf
-echo "KEYMAP=$keyboardlayout" >> /etc/vconsole.conf
+#echo "FONT=ter-v18n" >> /etc/vconsole.conf
+#echo "KEYMAP=$keyboardlayout" >> /etc/vconsole.conf
 
 # ------------------------------------------------------
 # Set hostname and localhost
@@ -77,26 +77,14 @@ passwd $username
 systemctl enable NetworkManager
 systemctl enable bluetooth
 systemctl enable cups.service
-systemctl enable sshd
 systemctl enable avahi-daemon
-systemctl enable reflector.timer
-systemctl enable fstrim.timer
 systemctl enable firewalld
-systemctl enable acpid
 
 # ------------------------------------------------------
 # Grub installation
 # ------------------------------------------------------
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB --removable
 grub-mkconfig -o /boot/grub/grub.cfg
-
-# ------------------------------------------------------
-# Add btrfs and setfont to mkinitcpio
-# ------------------------------------------------------
-# Before: BINARIES=()
-# After:  BINARIES=(btrfs setfont)
-sed -i 's/BINARIES=()/BINARIES=(btrfs setfont)/g' /etc/mkinitcpio.conf
-mkinitcpio -p linux
 
 # ------------------------------------------------------
 # Add user to wheel
