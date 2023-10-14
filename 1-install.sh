@@ -62,3 +62,32 @@ mount -o noatime,compress=zstd,subvol=@snapshots /dev/$rootpartition /mnt/.snaps
 #mounting efi
 mount /dev/$efipartition /mnt/efi
 
+# ------------------------------------------------------
+# Install base packages
+# ------------------------------------------------------
+pacstrap /mnt base base-devel git linux linux-firmware vim openssh reflector rsync amd-ucode
+
+# ------------------------------------------------------
+# Generate fstab
+# ------------------------------------------------------
+genfstab -U /mnt >> /mnt/etc/fstab
+cat /mnt/etc/fstab
+
+# ------------------------------------------------------
+# Install configuration scripts
+# ------------------------------------------------------
+mkdir /mnt/archinstall
+cp 2-configuration.sh /mnt/archinstall/
+cp 3-yay.sh /mnt/archinstall/
+cp 4-zram.sh /mnt/archinstall/
+cp 5-timeshift.sh /mnt/archinstall/
+cp 6-preload.sh /mnt/archinstall/
+cp snapshot.sh /mnt/archinstall/
+
+# ------------------------------------------------------
+# Chroot to installed sytem
+# ------------------------------------------------------
+chmod +x /mnt/archinstall/2-configuration.sh
+arch-chroot /mnt 
+cd archinstall
+./archinstall/2-configuration.sh
