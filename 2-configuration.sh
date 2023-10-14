@@ -9,10 +9,10 @@
 # by Stephan Raabe (2023)
 # ------------------------------------------------------
 clear
-keyboardlayout="de-latin1"
-zoneinfo="Europe/Berlin"
+#keyboardlayout="de-latin1"
+zoneinfo="Asia/Manila"
 hostname="arch"
-username="raabe"
+username="Leonard"
 
 # ------------------------------------------------------
 # Set System Time
@@ -87,7 +87,10 @@ systemctl enable acpid
 # ------------------------------------------------------
 # Grub installation
 # ------------------------------------------------------
-grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB --removable
+#for efi
+#grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB --removable
+#for non-efi
+grub-install --target=i386-pc --recheck /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 
 # ------------------------------------------------------
