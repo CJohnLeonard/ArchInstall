@@ -72,11 +72,19 @@ pacstrap /mnt base base-devel git linux linux-firmware vim openssh reflector rsy
 # ------------------------------------------------------
 genfstab -U /mnt >> /mnt/etc/fstab
 cat /mnt/etc/fstab
+pwd
 
 # ------------------------------------------------------
 # Install configuration scripts
 # ------------------------------------------------------
 mkdir /mnt/archinstall
+pwd
+cd
+cd
+pwd 
+cd ArchInstall
+ls
+pwd
 cp 2-configuration.sh /mnt/archinstall/
 cp 3-yay.sh /mnt/archinstall/
 cp 4-zram.sh /mnt/archinstall/
