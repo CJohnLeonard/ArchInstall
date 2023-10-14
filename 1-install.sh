@@ -79,5 +79,6 @@ cp snapshot.sh /mnt/archinstall/
 # ------------------------------------------------------
 # Chroot to installed sytem
 # ------------------------------------------------------
+chmod +x /mnt/archinstall/2-configuration.sh
 arch-chroot /mnt ./archinstall/2-configuration.sh
 
