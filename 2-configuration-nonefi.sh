@@ -110,6 +110,13 @@ cp /archinstall/5-timeshift.sh /home/$username
 cp /archinstall/6-preload.sh /home/$username
 cp /archinstall/snapshot.sh /home/$username
 
+# ------------------------------------------------------
+# Install Arch DE
+# ------------------------------------------------------
+
+pacman --noconfirm -S gnome gnome-tweaks
+systemctl enable gdm
+
 clear
 echo "     _                   "
 echo "  __| | ___  _ __   ___  "
