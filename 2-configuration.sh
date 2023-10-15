@@ -30,7 +30,7 @@ reflector --verbose --sort rate -c US -l 20 -f 5 --save /etc/pacman.d/mirrorlist
 # ------------------------------------------------------
 # Synchronize mirrors
 # ------------------------------------------------------
-pacman -Syy
+#pacman -Syy
 
 # ------------------------------------------------------
 # Install Packages
@@ -63,13 +63,13 @@ clear
 # Set Root Password
 # ------------------------------------------------------
 echo "Set root password"
-passwd root
+passwd
 
 # ------------------------------------------------------
 # Add User
 # ------------------------------------------------------
 echo "Add user $username"
-useradd -m -G wheel $username
+useradd -m -g users -G wheel $username
 passwd $username
 
 # ------------------------------------------------------
@@ -96,8 +96,8 @@ echo "Before: #%wheel ALL=(ALL:ALL) ALL"
 echo "After:  %wheel ALL=(ALL:ALL) ALL"
 echo ""
 read -p "Open sudoers now?" c
-EDITOR=vim sudo -E visudo
-usermod -aG wheel $username
+#EDITOR=vim sudo -E visudo
+#usermod -aG wheel $username
 
 # ------------------------------------------------------
 # Copy installation scripts to home directory 
