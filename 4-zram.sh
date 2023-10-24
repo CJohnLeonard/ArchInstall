@@ -5,7 +5,7 @@
 #  / /_|  _ <  / ___ \| |  | |
 # /____|_| \_\/_/   \_\_|  |_|
 #
-# by Stephan Raabe (2023)                            
+# by John Leonard Castigo (2023)                            
 # -----------------------------------------------------
 # ZRAM Install Script
 # yay must be installed

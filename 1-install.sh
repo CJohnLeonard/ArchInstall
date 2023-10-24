@@ -84,9 +84,6 @@ chmod +x 2-configuration.sh
 cp 2-configuration.sh /mnt/archinstall/
 cp 3-yay.sh /mnt/archinstall/
 cp 4-zram.sh /mnt/archinstall/
-cp 5-timeshift.sh /mnt/archinstall/
-cp 6-preload.sh /mnt/archinstall/
-cp snapshot.sh /mnt/archinstall/
 
 # ------------------------------------------------------
 # Chroot to installed sytem
