@@ -4,7 +4,7 @@ This shell script is designed to automate the Arch Linux installation process. I
 
 ## Instructions
 ```bash
-git clone https://github.com/your-username/arch-install-script.git
+git clone https://github.com/CJohnLeonard/ArchInstall.git
 ```
 ```bash
 cd ArchInstall
@@ -26,4 +26,4 @@ chmod +x 1-install.sh
 
 # Disclaimer
 
-Use this script at your own risk. The author is not responsible for any data loss or system issues that may occur during or after the installation process.
+Use this script at your own risk. The author is not responsible for any data loss or system issues that may occur during or after the installation process. Please use it responsibly and ensure you have backups before running it on your system.
