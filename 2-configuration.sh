@@ -89,7 +89,7 @@ grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=ARCH
 grub-mkconfig -o /boot/grub/grub.cfg
 
 # ------------------------------------------------------
-# Adding user to wheel
+# Adding user sudo privileges
 # ------------------------------------------------------
 clear
 echo "Please do uncomment %wheel group in sudoers (around line 85):"
@@ -104,6 +104,7 @@ EDITOR=vim sudo -E visudo
 # ------------------------------------------------------
 cp /archinstall/3-yay.sh /home/$username
 cp /archinstall/4-zram.sh /home/$username
+rm -rf /archinstall
 
 
 # ------------------------------------------------------
@@ -125,4 +126,4 @@ echo "Please find the following additional installation scripts in your home dir
 echo "- yay AUR helper: 3-yay.sh"
 echo "- zram swap: 4-zram.sh"
 echo ""
-echo "Please unmount exit & shutdown (umount -av shutdown -h now), remove the installation media and start again."
+echo "Please unmount & shutdown (umount -av shutdown -h now), remove the installation media and start again."

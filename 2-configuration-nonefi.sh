@@ -126,4 +126,4 @@ echo "Please find the following additional installation scripts in your home dir
 echo "- yay AUR helper: 3-yay.sh"
 echo "- zram swap: 4-zram.sh"
 echo ""
-echo "Please unmount exit & shutdown (umount -av shutdown -h now), remove the installation media and start again."
+echo "Please unmount & shutdown (umount -av shutdown -h now), remove the installation media and start again."

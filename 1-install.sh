@@ -72,7 +72,6 @@ pacstrap /mnt base base-devel git linux linux-firmware vim openssh reflector amd
 # Generate fstab
 # ------------------------------------------------------
 genfstab -U /mnt >> /mnt/etc/fstab
-#cat /mnt/etc/fstab
 
 # ------------------------------------------------------
 # Install configuration scripts
