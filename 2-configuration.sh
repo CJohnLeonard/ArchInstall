@@ -11,8 +11,6 @@
 clear
 #keyboardlayout="de-latin1"
 zoneinfo="Asia/Manila"
-hostname="arch"
-username="Leonard"
 
 # ------------------------------------------------------
 # Set System Time
@@ -53,6 +51,8 @@ echo "LANG=en_US.UTF-8" >> /etc/locale.conf
 # ------------------------------------------------------
 # Set hostname and localhost
 # ------------------------------------------------------
+read -p "Enter the preferred hostname  (eg. Arch): " hostname
+
 echo "$hostname" >> /etc/hostname
 echo "127.0.0.1 localhost" >> /etc/hosts
 echo "::1       localhost" >> /etc/hosts
@@ -68,7 +68,8 @@ passwd
 # ------------------------------------------------------
 # Add User
 # ------------------------------------------------------
-echo "Add user $username"
+read -p "Enter the preferred username  (eg. John Doe): " username
+echo "Adding user $username"
 useradd -m -g users -G wheel $username
 passwd $username
 
@@ -91,11 +92,11 @@ grub-mkconfig -o /boot/grub/grub.cfg
 # Adding user to wheel
 # ------------------------------------------------------
 clear
-echo "Uncomment %wheel group in sudoers (around line 85):"
+echo "Please do uncomment %wheel group in sudoers (around line 85):"
 echo "Before: #%wheel ALL=(ALL:ALL) ALL"
 echo "After:  %wheel ALL=(ALL:ALL) ALL"
 echo ""
-read -p "Open sudoers now?" c
+read -p "Adding user sudo privileges, please hit enter to continue." c
 EDITOR=vim sudo -E visudo
 
 # ------------------------------------------------------
