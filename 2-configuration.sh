@@ -92,7 +92,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 # Adding user sudo privileges
 # ------------------------------------------------------
 clear
-echo "Please do uncomment %wheel group in sudoers (around line 85):"
+echo "Please uncomment %wheel group in sudoers (around line 85):"
 echo "Before: #%wheel ALL=(ALL:ALL) ALL"
 echo "After:  %wheel ALL=(ALL:ALL) ALL"
 echo ""
