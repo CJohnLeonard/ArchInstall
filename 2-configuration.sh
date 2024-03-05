@@ -108,11 +108,15 @@ rm -rf /archinstall
 
 
 # ------------------------------------------------------
-# Install Arch DE(GNOME)
+# Install Arch Desktop Environment
+# please uncomment the preferred DE 
 # ------------------------------------------------------
 
-pacman --noconfirm -S gnome gnome-tweaks
-systemctl enable gdm
+#pacman --noconfirm -S gnome gnome-tweaks
+#systemctl enable gdm
+
+# pacman --noconfirm -S plasma plasma-wayland-session
+# systemctl enable sddm
 
 clear
 echo "     _                   "
