@@ -25,13 +25,13 @@
 # to find out how much space the .cache directy
 #du -sh .cache/
 # Removing .cache directory
-# the * is basicaly tells that you want to delete everythig inside the directory and not the directory itself
+# the * basicaly tells that you want to delete everythig inside the directory and not the directory itself
 # rm -rf .cache/*
 
 #to find out how much space the .config/ directy
 #du -sh .config/
 # Removing .config/ directory
-# the * is basicaly tells that you want to delete everythig inside the directory and not the directory itself
+# the * basicaly tells that you want to delete everythig inside the directory and not the directory itself
 # rm -rf .config/*
  
 # to find out how much space the journal directy
